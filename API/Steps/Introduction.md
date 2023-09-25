@@ -4,7 +4,7 @@ Um arquivo de soluções é um recipiente para conter projetos.
 COMMAND STEPS
 
 1. C:\Users\medve\source\repos\udemy\DatingApp> dotnet new sln
-		Cria solução com nome da pasta em que estou.
+Cria solução com nome da pasta em que estou.
 
 2. C:\Users\medve\source\repos\udemy\DatingApp> dotnet new webapi -n API
 
@@ -14,15 +14,14 @@ Adiciona projeto à solução.
 
 4. C:\Users\medve\source\repos\udemy\DatingApp> dotnet sln list
 
-…/DatingApp$ ls
+C:\Users\medve\source\repos\udemy\DatingApp> ls
 API DatingApp.sln
-…/DatingApp$ code .
+C:\Users\medve\source\repos\udemy\DatingApp> code .
 
 5. No terminal do VSCode:
-		cd API/
-		dotnet run
-
-C:\Users\medve\source\repos\udemy\DatingApp\API> dotnet dev-certs https –trust (no Windows; no Linux é diferente)
+	C:\Users\medve\source\repos\udemy\DatingApp> cd API/
+	C:\Users\medve\source\repos\udemy\DatingApp\API> dotnet run
+    C:\Users\medve\source\repos\udemy\DatingApp\API> dotnet dev-certs https –trust (no Windows; no Linux é diferente)
 
 **https://www.nuget.org/**
 
@@ -146,3 +145,26 @@ API/appsettings.json
 
 24. C:\Users\medve\source\repos\udemy\DatingApp> dotnet new globaljson
 Gera arquivo global.json na raiz. Especifica qual versão do SDK é usada neste projeto em particular.
+
+25. C:\Users\medve\source\repos\udemy\DatingApp> git push-u origin main
+
+
+# FIM DA SESSÃO 2
+
+Implementamos funcionalidades de API básicas e estudamos uma introdução à:
+
+1. Uso de dotnet CLI
+
+2. API Controllers e Endpoints
+API Controller herda da classe base ControllerBase.
+Possui um atributo de controlador de API e um controlador de API possui diferentes endpoints.
+
+3. Entity Framework
+
+4. Estrutura do projeto de API
+Classe Program com método Main.
+
+5. Configuração e variáveis de ambiente
+
+6. Código fonte
+Criação de repositório remoto no GitHub e vinculação com este projeto local.
