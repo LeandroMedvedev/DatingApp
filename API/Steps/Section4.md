@@ -578,6 +578,10 @@ builder.Services.AddIdentityServices(builder.Configuration);
 
 27. PS C:\Users\medve\source\repos\udemy\DatingApp\API> git add .
 
+28. PS C:\Users\medve\source\repos\udemy\DatingApp\API> git commit -m 'End of section 4'
+
+
+
 
 
 ### 48. Section 4 summary
