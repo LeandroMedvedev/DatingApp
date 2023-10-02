@@ -1028,6 +1028,7 @@ API\datingapp.db
 52. 
 git add .
 git commit -m 'End of section 5'
+Clico em Sync Changes para sincronizar mudanças com repositório GitHub (equivale ao git push).
 
 
 ### 64. Section 5 summary
