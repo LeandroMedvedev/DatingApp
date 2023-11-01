@@ -26,7 +26,7 @@ public class AccountController : BaseApiController
         if (await UserExists(registerDto.Username)) return BadRequest("Username is taken");
 
         /*
-            Por que usar using?
+            Por que usar "using"?
 
             Ao criar uma nova instância, isso consome espaço na memória.
             Uma vez terminada esta classe, gostaria de me desfazer dela.

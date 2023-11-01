@@ -41,7 +41,7 @@ O salt de senha é outra string aleatória passada ao hash computado que em segu
 
 Option 4 - Use ASP.NET Identity -> BEST OPTION
 
-FAQs (Perguntas frequentes)
+FAQs (Frequently Answered Questions)
 Why don't you use ASP.NET Identity?
 Faremos isso mais tarde no curso. Ele faz tudo por nós, mas não nos mostra como funciona.
 
@@ -175,7 +175,7 @@ if (await UserExists(registerDto.Username)) return BadRequest("Username is taken
             PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(registerDto.Password)),
             PasswordSalt = hmac.Key,
         };
-
+ 
         _context.Users.Add(user);           // rastreia nova entidade na memória
         await _context.SaveChangesAsync();  // salva no db
 
@@ -246,7 +246,6 @@ public async Task<ActionResult<AppUser>> Login(LoginDto loginDto)
     }
 
     return user;
-
 }
 
 ### 42. JSON web tokens
@@ -271,7 +270,7 @@ CLIENT                                                  SERVER
 **Benefits of JWT**
 
 **I.** No session to manage - JWTs are self contained tokens
-**II.** Portátil - um simples token pode ser usado em com múltiplos backends
+**II.** Portátil - um simples token pode ser usado com múltiplos backends
 **III.** Não são necessários cookies - compatíveis com dispositivos móveis *celulares não lidam com cookies*
 **IV.** Performance - uma vez emitido o token, não é preciso fazer requisições ao db para verificar autenticação do usuário.
 Usuário mantém token e, sempre que precisar acessar um recurso protegido, apresenta seu token num cabeçalho de autenticação.

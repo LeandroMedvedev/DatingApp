@@ -74,6 +74,17 @@ builder.Services.AddDbContext<DataContext>(opt =>
     opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+API\appsettings.Development.json
+
+{
+  "Logging": {
+    ...
+  },
+  "ConnectionStrings": {
+    "DefaultConnection": "Data source=datingapp.db"
+  }
+}
+
 13. C:\Users\medve\source\repos\udemy\DatingApp\API> dotnet tool list -g
 ID do Pacote      Versão      Comandos 
 ---------------------------------------
@@ -94,9 +105,9 @@ Para ver o db SQLite:
 3 - API/datingapp.db
 
 Caso queira inserir dados em uma tabela específica, clique com o botão direito sobre o nome da tabela, selecione New Query [Insert].
-Insira a(s) query(ies), selecione as que quer executar, clique com o botão direito, escolha Run Selected Query.
+Insira a(s) query(ies), selecione as linhas que quer executar, clique com o botão direito, escolha Run Selected Query.
 
-18. adição do arquivo .editorconfig na raiz com as configurações que copiei do repositório do Neil. Isso para que quando eu opte por cclicar na ajuda do VSCode para criar campos privados nas classes, estes sejam criados com underscore.
+18. adição do arquivo .editorconfig na raiz com as configurações que copiei do repositório do Neil. Isso para que quando eu opte por clicar na ajuda do VSCode para criar campos privados nas classes, estes sejam criados com underscore.
 
 19. UsersController
 API\Controllers\UsersController.cs
@@ -132,7 +143,7 @@ public class UsersController : ControllerBase
     }
 }
 
-20.  C:\Users\medve\source\repos\udemy\DatingApp> git init
+20. C:\Users\medve\source\repos\udemy\DatingApp> git init
 
 21. C:\Users\medve\source\repos\udemy\DatingApp> dotnet new list
 

@@ -11,7 +11,7 @@ Implement the login and register (client side) functionality into the app as wel
 5. Using Angular structural directives to conditionally display elements on a page
 6. Component communication from parent to child
 7. Component communication from child to parent
-
+  
 
 ### 49. Introduction
 
@@ -95,7 +95,6 @@ export class NavComponent implements OnInit {
 
   login() {
     console.log(this.model);
-    
   }
 }
 
@@ -333,7 +332,7 @@ Outro modo de obter dados dos Observables é a função Angular Async Pipe:
 
 Automatically subscribes/unsubscribes from the Observable.
 A vantagem de usar o Pipe Assíncrono é que ele inscreve-se e desinscreve-se automaticamente do Observable.
-Quando o uso o Observable no modo tradicional (ilustrado acima em **Subscribe**), a inscrição no Observable não é cancelada. Seria preciso fazer isso de modo diferente. 
+Quando uso o Observable no modo tradicional (ilustrado acima em **Subscribe**), a inscrição no Observable não é cancelada. Seria preciso fazer isso de modo diferente. 
 Mas há uma ressalva aqui também. Se estivermos fazendo uma requisição HTTP, elas normalmente serão concluídas. Portanto, não preciso cancelar a inscrição no Observable.
 
 ### 57. Persisting the login

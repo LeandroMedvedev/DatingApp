@@ -6,8 +6,7 @@
             routerLinkActive="active"
         >Dating App</a>
         <ul
-            class="navbar-nav me-auto mb-2 mb-md-0"
-            *ngIf="accountService.currentUser$ | async"
+            class="navbar-nav me-auto mb-2 mb-md-0"            
         ><!-- Se currentUser$ não for nulo, está logado -->
 
             <ng-container *ngIf="accountService.currentUser$ | async">
@@ -33,6 +32,14 @@
                     >Messages</a>
                 </li>
             </ng-container>
+
+            <li class="nav-item">
+                <a
+                    class="nav-link"
+                    routerLink="/errors"
+                    routerLinkActive='active'
+                >Errors</a>
+            </li>
         </ul>
 
         <div
