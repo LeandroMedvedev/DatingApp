@@ -4,6 +4,12 @@ A ideia desta sessão será lidar com erros num nível mais alto, justamente par
 
 ## Learning Goals
 
+Implement global error handling in both the API and the Angular Application. Also to have an understanding of:
+
+1. API Middleware
+2. Angular Interceptors
+3. Troubleshooting exceptions
+
 ### 75. Introduction
 
 Implement global error handling in both the API and the Angular application. Also to have an understanding of:
@@ -482,6 +488,11 @@ client\src\app\errors\server-error\server-error.component.html
             {{ error.details }}</code>
     </ol>
 </ng-container>
+
+21. 
+git add .
+git commit -m 'End of section 7'
+Clico em Sync Changes para sincronizar mudanças com repositório GitHub (equivale ao git push).
 
 
 ### 84. Section 7 summary

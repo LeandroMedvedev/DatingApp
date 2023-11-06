@@ -21,6 +21,8 @@ public static class ApplicationServiceExtensions
             
             Mas usar a interface isola melhor o código e facilita ao implementar testes.
         */
+        services.AddScoped<IUSerRepository, UserRepository>();
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
         return services;
     } 

@@ -1,21 +1,23 @@
-using API.Data;
-using API.Entities;
+using API.DTOs;
+using API.Interfaces;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
 [Authorize]
 public class UsersController : BaseApiController
 {
-    private readonly DataContext _context;
-    public UsersController(DataContext context)
+    private readonly IUSerRepository _userRepository;
+    private readonly IMapper _mapper;
+
+    public UsersController(IUSerRepository repository, IMapper mapper)
     {
-        _context = context;
+        _userRepository = repository;
+        _mapper = mapper;
     }
 
-    [AllowAnonymous]
     /*
         --MÉTODO SÍNCRONO--
 
@@ -33,17 +35,17 @@ public class UsersController : BaseApiController
         3. await
         4. método assíncrono
     */
-    [HttpGet]  // api/users
-    public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
     {
-        var users = await _context.Users.ToListAsync();
+        var users = await _userRepository.GetMembersAsync();
 
-        return users;
+        return Ok(users);
     }
 
-    [HttpGet("{id}")]  // api/users/1
-    public async Task<ActionResult<AppUser>> GetUser(int id)
+    [HttpGet("{username}")]
+    public async Task<ActionResult<MemberDto>> GetUser(string username)
     {
-        return await _context.Users.FindAsync(id);
+        return await _userRepository.GetMemberByUsernameAsync(username);
     }
 }
