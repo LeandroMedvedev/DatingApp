@@ -2,27 +2,30 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ToastrModule } from 'ngx-toastr';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
     BsDropdownModule.forRoot(),
+    TabsModule.forRoot(),
     ToastrModule.forRoot({
-      easeTime: 500,
-      progressBar: true,
+      // easeTime: 500,
+      // progressBar: true,
       positionClass: 'toast-bottom-left',
-      iconClasses: {
-        error: 'toast-error',
-        info: 'toast-info',
-        success: 'toast-success',
-        warning: 'toast-warning',
-      }
+      // iconClasses: {
+      //   error: 'toast-error',
+      //   info: 'toast-info',
+      //   success: 'toast-success',
+      //   warning: 'toast-warning',
+      // }
     }),
   ],
   exports: [
     BsDropdownModule,
     ToastrModule,
+    TabsModule,
   ]
 })
 export class SharedModule { }

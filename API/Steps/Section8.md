@@ -746,8 +746,8 @@ API\Controllers\UsersController.cs
 ...
 
 33. 
-git add .
-git commit -m 'End of section 8'
-Clico em Sync Changes para sincronizar mudanças com repositório GitHub (equivale ao git push).
+git add .  
+git commit -m 'End of section 8'  
+Clico em Sync Changes para sincronizar mudanças com repositório GitHub (equivale ao git push).  
 
 ### 100. Section 8 summary

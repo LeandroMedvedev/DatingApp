@@ -1,1 +1,70 @@
-<p>member-detail works!</p>
+<div
+    class="row"
+    *ngIf="member"
+>
+    <div class="col-4">
+        <!-- col-4: ocupa 1 terço do espaço disponível -->
+        <div class="card">
+            <img
+                class='card-img-top img-thumbnail'
+                src="{{member.photoUrl || './assets/user.png'}}"
+                alt="{{member.knownAs}}"
+            >
+            <!-- caso usuário não possua photoUrl, foto padrão user.png -->
+            <div class="card-body">
+                <div>
+                    <strong>Location:</strong>
+                    <p>{{member.city}}, {{member.country}}</p>
+                </div>
+                <div>
+                    <strong>Age:</strong>
+                    <p>{{member.age}}</p>
+                </div>
+                <div>
+                    <strong>Last active:</strong>
+                    <p>{{member.lastActive}}</p>
+                </div>
+                <div>
+                    <strong>Member since:</strong>
+                    <p>{{member.created}}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group d-flex">
+                    <!-- d-flex: display flex -->
+                    <button class="btn btn-success">Like</button>
+                    <button class="btn btn-dark">Messages</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-8">
+        <!-- esta segunda div ocupará o restante das 12 colunas (primeira ocupou as 4 iniciais à esquerda) -->
+        <tabset class='member-tabset'>
+            <tab heading="About {{member.knownAs}}">
+                <h4>Description</h4>
+                <p>{{member.introduction}}</p>
+                <h4>Looking for</h4>
+                <p>{{member.lookingFor}}</p>
+            </tab>
+            <tab heading="Interests">
+                <h4>Interests</h4>
+                <p>{{member.interests}}</p>
+            </tab>
+            <tab
+                heading="Photos"
+                #photoTab="tab"
+            >
+                <gallery
+                    class="gallery"
+                    *ngIf="photoTab.active"
+                    [items]="images"
+                ></gallery>
+            </tab>
+            <tab heading="Messages">
+                <p>Messages will go here</p>
+            </tab>
+        </tabset>
+    </div>
+</div>
