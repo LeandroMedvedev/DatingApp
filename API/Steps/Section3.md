@@ -1,4 +1,4 @@
-# SECTION 3
+# SECTION 3: Building a Walking Skeleton Part Two
 
 ## Learning Goals
 Complete the walking skeleton and have an introductory understanding of:

@@ -1,4 +1,4 @@
-# SECTION 9
+# SECTION 9: Building the User Interface
 
 ## Learning Goals
 
@@ -901,6 +901,7 @@ client\src\app\members\member-card\member-card.component.html
 git add .  
 git commit -m 'End of section 9'  
 Clico em Sync Changes para sincronizar mudanças com repositório GitHub (equivale ao git push). 
+
 
 ### 114. LEGACY (will be removed Nov 23) Adding a photo gallery (Angular 13 and below)
 

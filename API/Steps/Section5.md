@@ -1,4 +1,4 @@
-# SECTION 5
+# SECTION 5: Client Login And Register
 
 ## Learning Goals
 

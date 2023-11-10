@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ToastrModule } from 'ngx-toastr';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [],
@@ -11,21 +12,25 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
     ToastrModule.forRoot({
-      // easeTime: 500,
-      // progressBar: true,
       positionClass: 'toast-bottom-left',
-      // iconClasses: {
-      //   error: 'toast-error',
-      //   info: 'toast-info',
-      //   success: 'toast-success',
-      //   warning: 'toast-warning',
-      // }
+      /*
+        easeTime: 500,
+        progressBar: true,
+        iconClasses: {
+          error: 'toast-error',
+          info: 'toast-info',
+          success: 'toast-success',
+          warning: 'toast-warning',
+        }
+      */
     }),
+    NgxSpinnerModule,
   ],
   exports: [
     BsDropdownModule,
     ToastrModule,
     TabsModule,
+    NgxSpinnerModule,
   ]
 })
 export class SharedModule { }

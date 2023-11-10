@@ -1,4 +1,4 @@
-# SECTION 8
+# SECTION 8: Extending the API
 
 ## Learning Goals
 

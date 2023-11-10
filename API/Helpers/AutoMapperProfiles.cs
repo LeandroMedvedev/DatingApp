@@ -40,5 +40,10 @@ public class AutoMapperProfiles : Profile
             na propriedade Photos, obter a primeira URL.
         */
         CreateMap<Photo, PhotoDto>();
+        CreateMap<MemberUpdateDto, AppUser>();
+        /*
+            Como as propriedades de MemberUpdateDto correspondem exatamente às
+            propriedades de AppUser, é desnecessário qualquer lógica adicional.
+        */
     }
 }

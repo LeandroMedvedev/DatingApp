@@ -1,4 +1,4 @@
-# SECTION 6
+# SECTION 6: Routing in Angular
 
 ## Learning Goals
 

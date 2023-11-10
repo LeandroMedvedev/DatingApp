@@ -1,4 +1,4 @@
-# SECTION 4
+# SECTION 4: Authentication Basics
 
 ## Learning Goals
 

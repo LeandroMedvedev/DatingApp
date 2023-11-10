@@ -1,4 +1,4 @@
-# SECTION 7
+# SECTION 7: Error Handling
 
 A ideia desta sessão será lidar com erros num nível mais alto, justamente para evitar usar try catch em cada método nos controllers. Evitar poluir o código desse modo. Assim, criaremos um middleware personalizado para lidar com os erros.
 

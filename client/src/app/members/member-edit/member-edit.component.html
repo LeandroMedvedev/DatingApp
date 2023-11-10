@@ -1,0 +1,113 @@
+<div
+    class="row"
+    *ngIf="member"
+>
+    <div class="col-4">
+        <h1>Your profile</h1>
+    </div>
+    <div class="col-8">
+        <div
+            class="alert alert-info pb-0"
+            *ngIf="editForm.dirty"
+        >
+            <p><strong>Information: </strong> You have made changes. Any unsaved changes will be lost.</p>
+        </div>
+    </div>
+    <div class="col-4">
+        <!-- col-4: ocupa 1 terço do espaço disponível -->
+        <div class="card">
+            <img
+                class='card-img-top img-thumbnail'
+                src="{{member.photoUrl || './assets/user.png'}}"
+                alt="{{member.knownAs}}"
+            >
+            <!-- caso usuário não possua photoUrl, foto padrão user.png -->
+            <div class="card-body">
+                <div>
+                    <strong>Location:</strong>
+                    <p>{{member.city}}, {{member.country}}</p>
+                </div>
+                <div>
+                    <strong>Age:</strong>
+                    <p>{{member.age}}</p>
+                </div>
+                <div>
+                    <strong>Last active:</strong>
+                    <p>{{member.lastActive}}</p>
+                </div>
+                <div>
+                    <strong>Member since:</strong>
+                    <p>{{member.created}}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button
+                    class="btn btn-success col-12"
+                    type='submit'
+                    form='editForm'
+                    [disabled]="!editForm.dirty"
+                >Save changes</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-8">
+        <!-- esta segunda div ocupará o restante das 12 colunas (primeira ocupou as 4 iniciais à esquerda) -->
+        <tabset class='member-tabset'>
+            <tab heading="About {{member.knownAs}}">
+                <form
+                    id='editForm'
+                    #editForm='ngForm'
+                    (ngSubmit)="updateMember()"
+                >
+                    <!-- método em (ngSubmit)='' é acionado quando botão tipo submit dentro deste formulário for clicado -->
+                    <h4 class='mt-2'>Description</h4>
+                    <textarea
+                        class='form-control'
+                        [(ngModel)]="member.introduction"
+                        name='introduction'
+                        rows='6'
+                    ></textarea>
+
+                    <h4 class='mt-2'>Looking for</h4>
+                    <textarea
+                        class='form-control'
+                        [(ngModel)]="member.lookingFor"
+                        name='lookingFor'
+                        rows='6'
+                    ></textarea>
+
+                    <h4 class='mt-2'>Interests</h4>
+                    <textarea
+                        class='form-control'
+                        [(ngModel)]="member.interests"
+                        name='interests'
+                        rows='6'
+                    ></textarea>
+
+                    <h4 class='mt-2'>Location details:</h4>
+                    <div class="d-flex flex-row align-items-center">
+                        <label for="city">City</label>
+                        <input
+                            id='city'
+                            [(ngModel)]='member.city'
+                            name='city'
+                            class='form-control mx-2'
+                        >
+                        <!-- mx-2: margem esquerda e direita (creio que 'x' seja de eixo horizontal) -->
+                        <label for="country">Country</label>
+                        <input
+                            id='country'
+                            [(ngModel)]='member.country'
+                            name='country'
+                            class='form-control mx-2'
+                        >
+                    </div>
+                </form>
+            </tab>
+            <tab heading="Edit Photos">
+                <p>Photos edit will go here</p>
+            </tab>
+        </tabset>
+    </div>
+</div>
