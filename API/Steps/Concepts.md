@@ -104,3 +104,51 @@ AutoMapper irá fazer o mapeamento automático em cada propriedade de 2 classes,
     API\Entities\Photo.cs       x    API\DTOs\PhotoDto.cs
 
 Irá mapear que ambas possuem Id, UserName... Ou seja, todas as propriedades entre as classes acima em que o tipo e o nome correspondem serão mapeadas automaticamente por AutoMapper. Irá mapear que AppUser possui o método GetAge() e MemberDto possui a propriedade Age. Ele é inteligente para saber usar o método para calcular a idade, mas para isso o nome precisa ser este: GetAge. Caso contrário, o mapeamento para esta propriedade falhará. 
+
+
+
+*******************************************************************************************************************
+# ADDTRANSIENT, ADDSINGLETON, ADDSCOPED
+Em ASP.NET Core, `AddTransient` e `AddSingleton` são métodos utilizados para registrar serviços no contêiner de injeção de dependência. Esses métodos fazem parte da classe `IServiceCollection`, que é usada para configurar os serviços que serão injetados em outras partes da aplicação.
+
+A diferença principal entre `AddTransient` e `AddSingleton` está relacionada ao tempo de vida dos objetos injetados. Vamos entender cada um deles:
+
+1. **AddTransient:**
+   - Um novo objeto é criado cada vez que o serviço é solicitado.
+   - É adequado para serviços leves e sem estado, onde uma nova instância a cada injeção não causa problemas.
+   - Cada requisição ou chamada ao serviço resulta em uma nova instância.
+
+   Exemplo:
+
+   ```csharp
+   services.AddTransient<IServico, Servico>();
+   ```
+
+2. **AddSingleton:**
+   - Uma única instância do objeto é criada e reutilizada sempre que o serviço é solicitado.
+   - É adequado para serviços que podem ser compartilhados entre diferentes partes da aplicação e que não mantêm estado específico do usuário.
+   - A instância é criada na primeira solicitação e reutilizada nas solicitações subsequentes.
+
+   Exemplo:
+
+   ```csharp
+   services.AddSingleton<IServico, Servico>();
+   ```
+
+Em resumo, a escolha entre `AddTransient` e `AddSingleton` depende das necessidades específicas do serviço que você está registrando. Se o serviço for leve e sem estado, `AddTransient` pode ser a escolha apropriada. Se você precisar compartilhar uma única instância do serviço em toda a aplicação, `AddSingleton` é mais apropriado. Também existe o `AddScoped` que cria uma única instância por solicitação (request), sendo útil em cenários onde você deseja compartilhar uma instância ao longo de toda a execução de uma solicitação HTTP.
+
+
+
+*******************************************************************************************************************
+# REST (alguns conceitos)
+
+### Respostas Corretas em Solicitações HTTP
+
+1. GET          -> 200
+2. POST         -> 201
+3. PATCH/PUT    -> 204
+4. DELETE       -> 200
+
+Ao usar status 201, o header passa a ter a propriedade Location, exemplo:
+
+Location: https://localhost:5001/api/Users/lisa

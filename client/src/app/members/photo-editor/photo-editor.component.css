@@ -1,0 +1,14 @@
+/* 
+Classe da zona sobre a qual arrastamos arquivos.
+Estava sem estilo algum aplicado. Pairávamos com
+o arquivo sobre ela e nada ocorria para ao menos
+sinalizar que o arquivo estava sobre ela, ainda
+que não fosse solto.
+*/
+.nv-file-over {
+    border: dotted 2px #772953;
+}
+
+input[type=file] {
+    color: transparent; /* ocultar texto "nenhum ficheiro selecionado" */
+}

@@ -635,7 +635,7 @@ Ao clicar no botãozinho do usuário, dentro do próprio card do usuário, estam
 Ou seja, isso seria necessário para visualizar perfis de outros usuários, mas não o que está logado.
 
 Quando mudo de um componente para outro, o componente e os dados nele são destruídos.
-Há serviços de memória disponíveis em uma aplicação Angular. Estes não são perdidos.
+Há serviços de memória disponíveis em uma aplicação Angular. Estes não são perdidos, considerando que classes Services em nossa aplicação são Singletons, ou seja, os dados permanecem e podemos acessá-los caso os tenhamos, em vez de fazer uma requisição à API sem necessidade.
 Assim, um modo de corrigir o problema é armazenar os usuários, não na variável members em MemberListComponent, destruído toda vez que dele saímos, mas em algum lugar em MembersService. Isso permitira inclusive usá-los em diferentes lugares da aplicação sem precisar requisitá-los toda vez do servidor.
 Eis exatamente o que iremos fazer nos passos seguintes:
 
@@ -660,10 +660,9 @@ export class MembersService {
     /*
       Como é preciso retornar um Observable no if acima, não podemos retornar diretamente members, que é do tipo Members[]. Logo, usamos "of" de rxjs que retornará Observable<Member[]>.
       Uma vez que os membros tenham sido retornados na requisição, posso atribuí-los à variável/propriedade members.
-      Ao chamar getMembers(), se não houver nada na propriedade members, daí sim faço a requisição da API (return abaixo).
+      Ao chamar getMembers(), se não houver nada na propriedade members, daí sim faço a requisição da API (return abaixo), daí o if acima.
 
-      Após buscar usuários da API, caso necessário, usamos o método "pipe" com o método "map" dentro. Para projetar o
-      que recebemos da API, a lista de membros. 
+      Após buscar usuários da API, caso necessário, usamos o método "pipe" com o método "map" dentro. Para projetar o que recebemos da API, a lista de membros. 
       Como nosso componente está utilizando esta lista com propriedade members, precisamos retorná-los também como "return" 
       aninhado abaixo.
     */
