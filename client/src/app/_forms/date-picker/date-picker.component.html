@@ -1,0 +1,21 @@
+<div class="mb-3">
+    <input
+        class="form-control"
+        [formControl]="control"
+        [class.is-invalid]="control.touched && control.invalid"
+        placeholder="{{label}}"
+        bsDatepicker
+        [bsConfig]="bsConfig"
+        [maxDate]="maxDate"
+    >
+    <!-- 
+        bsDatepicker é uma diretiva disponibilizada pelo módulo BsDatepickerModule em shared.module.ts
+        https://valor-software.com/ngx-bootstrap/#/components/datepicker?tab=overview
+    -->
+    <div
+        class="invalid-feedback"
+        *ngIf="control.errors?.['required']"
+    >
+        {{ label }} is required
+    </div>
+</div>

@@ -44,6 +44,8 @@ public class AutoMapperProfiles : Profile
         /*
             Como as propriedades de MemberUpdateDto correspondem exatamente às
             propriedades de AppUser, é desnecessário qualquer lógica adicional.
+            O mesmo para RegisterDto e AppUser (abaixo).
         */
+        CreateMap<RegisterDto, AppUser>();
     }
 }

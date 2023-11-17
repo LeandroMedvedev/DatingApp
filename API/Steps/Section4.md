@@ -492,7 +492,7 @@ builder.Services.AddDbContext<DataContext>(opt =>
 builder.Services.AddCors();
 builder.Services.AddScoped<ITokenService, TokenService>();
 
-*Recorto linhas acima em Program.cs e colo no método de extensão que criei, com algumas adaptações:*
+***Recorto linhas acima em Program.cs e colo no método de extensão que criei, com algumas adaptações:***
  
 API\Extensions\ApplicationServiceExtensions.cs
 
@@ -535,7 +535,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     };
 });
 
-Recorto linhas acima de Program.cs e colo em API\Extensions\IdentityServiceExtensions.cs, com algumas adaptações.
+***Recorto linhas acima de Program.cs e colo em API\Extensions\IdentityServiceExtensions.cs, com algumas adaptações.***
 
 API\Extensions\IdentityServiceExtensions.cs
 

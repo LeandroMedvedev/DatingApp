@@ -152,3 +152,75 @@ Em resumo, a escolha entre `AddTransient` e `AddSingleton` depende das necessida
 Ao usar status 201, o header passa a ter a propriedade Location, exemplo:
 
 Location: https://localhost:5001/api/Users/lisa
+
+
+
+*******************************************************************************************************************
+# PARTIAL
+
+Ao usar Partial<...> diante de um tipo, tornamos cada propriedade dentro desse tipo opcional. Assim, mesmo que tenhamos 100 propriedades que são todas necessárias dentro desse tipo particular de algo, usamos a palavra "Partial" e colocamos a sequência dentro de colchetes angulares:
+
+***Partial<BsDatepickerConfig>***
+
+
+
+*******************************************************************************************************************
+# USO DE [REQUIRED] COM NULLABLE TYPES
+
+Se você estiver usando tipos anuláveis, pode simplesmente declarar a propriedade como um tipo anulável e não precisará do atributo `[Required]` para indicar que o valor não pode ser nulo. Aqui está um exemplo:
+
+```csharp
+public class ExemploModel
+{
+    public int? ExemploNumero { get; set; }
+    public DateTime? ExemploData { get; set; }
+}
+```
+
+Neste exemplo, `ExemploNumero` e `ExemploData` são ambos tipos anuláveis, o que significa que eles podem ser `null`. Se você quiser garantir que um valor específico não seja nulo, você pode simplesmente verificar isso em seu código, em vez de depender exclusivamente do atributo `[Required]`.
+
+Se, por algum motivo, você ainda quiser usar `[Required]` com tipos anuláveis, você pode usar a classe `Nullable<T>` na declaração do tipo:
+
+```csharp
+public class ExemploModel
+{
+    [Required]
+    public int? ExemploNumero { get; set; }
+
+    [Required]
+    public DateTime? ExemploData { get; set; }
+}
+```
+
+Isso ainda permitirá que você use o atributo `[Required]`, mesmo com tipos anuláveis. No entanto, é importante entender que a anulação por si só já fornece a semântica de "não é necessário".
+
+
+
+*******************************************************************************************************************
+# JSON.PARSE x JSON.STRINGIFY
+
+`JSON.parse` e `JSON.stringify` são duas funções em JavaScript que lidam com a manipulação de dados no formato JSON (JavaScript Object Notation), mas desempenham papéis opostos.
+
+1. **JSON.parse:**
+   - A função `JSON.parse` é usada para analisar uma string JSON e converter essa string em um objeto JavaScript equivalente.
+   - Exemplo:
+
+    ```javascript
+    const jsonString = '{"name": "John", "age": 30, "city": "New York"}';
+    const jsonObject = JSON.parse(jsonString);
+    console.log(jsonObject);
+    // Output: { name: 'John', age: 30, city: 'New York' }
+    ```
+
+2. **JSON.stringify:**
+   - A função `JSON.stringify` é usada para converter um objeto JavaScript em uma string JSON.
+   - Exemplo:
+
+    ```javascript
+    const jsonObject = { name: 'John', age: 30, city: 'New York' };
+    const jsonString = JSON.stringify(jsonObject);
+    console.log(jsonString);
+    // Output: '{"name":"John","age":30,"city":"New York"}'
+    ```
+
+Portanto, enquanto `JSON.parse` converte uma string JSON em um objeto JavaScript, `JSON.stringify` converte um objeto JavaScript em uma string JSON. Essas funções são frequentemente usadas em conjunto para serializar e desserializar dados ao trabalhar com APIs, armazenar dados em bancos de dados, ou transmitir informações entre diferentes partes de um aplicativo.

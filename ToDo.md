@@ -7,3 +7,4 @@
         API\Extensions\ClaimsPrincipalExtensions.cs
         API\Controllers\UsersController.cs
 6. Adicionar foto principal à barra de navegação. **Sessão 11, Aula 137**
+7. **Sessão 12 inteira, aulas 143-152, Formulários Reativos**

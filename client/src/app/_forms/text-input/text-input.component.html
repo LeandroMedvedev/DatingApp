@@ -1,0 +1,39 @@
+<div class="mb-3">
+    <input
+        [class.is-invalid]="control.touched && control.invalid"
+        class='form-control'
+        [formControl]="control"
+        type={{type}}
+        placeholder={{label}}
+    >
+    <!-- 
+            As chaves duplas de type e placeholder (acima) têm de ficar coladas ao seu conteúdo interno como estão.
+            Qualquer espaço gera erro no código.
+
+            core.mjs:10592 ERROR DOMException: Failed to execute 'setAttribute' on 'Element': '}}' is not a valid attribute name.
+        -->
+    <div
+        class="invalid-feedback"
+        *ngIf="control.errors?.['required']"
+    >
+        Please enter a {{ label }}
+    </div>
+    <div
+        class="invalid-feedback"
+        *ngIf="control.errors?.['minlength']"
+    >
+        {{ label }} must be at least {{ control.errors?.['minlength'].requiredLength }} characters
+    </div>
+    <div
+        class="invalid-feedback"
+        *ngIf="control.errors?.['maxlength']"
+    >
+        {{ label }} must be at most {{ control.errors?.['maxlength'].requiredLength }} characters
+    </div>
+    <div
+        class="invalid-feedback"
+        *ngIf="control.errors?.['notMatching']"
+    >
+        Passwords do not match
+    </div>
+</div>

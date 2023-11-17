@@ -87,12 +87,12 @@ export class PhotoEditorComponent implements OnInit {
     this.uploader.onAfterAddingFile = (file) => {
       file.withCredentials = false
       /*
-        Se não fizermos isso, precisaremos ajustar nossa configuração do CORS e não queremos isso.
+        Se não fizermos isso, precisaremos ajustar nossa configuração do CORS, o que não queremos.
       */
     }
 
     /*
-      A seguir, o que queremos fazer depois que o arquivo for carregado com sucesso?
+      A seguir, o que queremos fazer depois que o arquivo (foto) for carregado com sucesso?
     */
     this.uploader.onSuccessItem = (item, response, status, headers) => {
       if (response) {
@@ -101,6 +101,10 @@ export class PhotoEditorComponent implements OnInit {
 
         if (photo.isMain && this.user && this.member) {
           this.user.photoUrl = photo.url;
+          /*
+            Ao carregar a primeira foto, ela será automaticamente definida como a foto principal.
+            Qualquer outra foto não entrará neste if: por isso photo.isMain && ...
+          */
           this.member.photoUrl = photo.url;
           this.accountService.setCurrentUser(this.user);
         }
